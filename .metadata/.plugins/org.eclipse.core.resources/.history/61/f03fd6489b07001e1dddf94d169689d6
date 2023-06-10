@@ -1,0 +1,49 @@
+package br.com.testes.utilitarios;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import br.com.testes.entidades.Pessoa;
+
+public class Factory {
+	
+	public static Pessoa criarPessoa(String nome, char sexo) {
+		
+		return new Pessoa(nome, sexo);
+		
+	}
+	
+	public static List<Pessoa> criarListaPessoa(Pessoa...pessoas){
+		
+		List<Pessoa> lista= new ArrayList<>();
+		
+		for(Pessoa pessoa : pessoas) {
+			lista.add(pessoa);
+		}
+		
+		return lista;
+		
+	}
+	
+	public static List<Pessoa> selecionaSexoEspecifico(List<Pessoa> listaCompleta, char sexo){
+		
+		List<Pessoa> novaLista= listaCompleta.stream().filter(x -> x.getSexo()==sexo).collect(Collectors.toList());
+		
+		return novaLista;
+		
+	}
+	
+	public static Boolean confirmaListaComSexoEspecifico(List<Pessoa> lista, char sexo) {
+		
+		for(Pessoa pessoa : lista) {
+			
+			if(pessoa.getSexo() != sexo) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
+
+}

@@ -1,0 +1,33 @@
+import java.util.Arrays;
+import java.util.List;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+import br.com.testes.entidades.Pessoa;
+import br.com.testes.utilitarios.Factory;
+
+public class TestePessoa {
+
+	@Test
+	public void testarSeSexoFeminino() {
+		char sexo = 'f';
+		
+		Pessoa pessoa1= new Pessoa("João Victor", 'm');
+		Pessoa pessoa2= new Pessoa("Viviane", 'f');
+		Pessoa pessoa3= new Pessoa("Janaina", 'f');
+		Pessoa pessoa4= new Pessoa("Verônica", 'f');
+		Pessoa pessoa5= new Pessoa("Eduardo", 'm');
+		Pessoa pessoa6= new Pessoa("Josiel", 'm');
+		Pessoa pessoa7= new Pessoa("Ana Lívia", 'f');
+		Pessoa pessoa8= new Pessoa("Luiz Henrique", 'm');
+		Pessoa pessoa9= new Pessoa("Cristiane", 'f');
+		
+		List<Pessoa> lista= Arrays.asList(pessoa1, pessoa2, pessoa3, pessoa4, pessoa5, pessoa6, pessoa7, pessoa8, pessoa9);
+		
+		List<Pessoa> listaFeminina = Factory.selecionaSexoEspecifico(lista, sexo);
+		
+		Assert.assertTrue(Factory.confirmaListaComSexoEspecifico(listaFeminina, sexo));
+	}
+
+}

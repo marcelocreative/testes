@@ -1,0 +1,45 @@
+package br.com.testes;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+
+import br.com.testes.entidades.Pessoa;
+
+
+public class Programa {
+
+	public static void main(String[] args) {
+		
+		Scanner sc= new Scanner(System.in);
+		System.out.println("Criação da lista de pessoas");
+		List<Pessoa> lista= new ArrayList<>();
+
+		String opcao= "A";
+		
+		while(opcao.equalsIgnoreCase("A")) {
+			System.out.print("\nDigite o nome e sexo exemplo.: (João Paulo,m) ");
+			String dadosPessoa= sc.nextLine();
+			String[] dados= dadosPessoa.split(",");
+			Pessoa pessoa= new Pessoa(dados[0], dados[1].charAt(0));
+			lista.add(pessoa);
+			
+			System.out.print("A para Adicionar mais pessoas | F para Finalizar ");
+			opcao = sc.nextLine();
+			
+			
+		}
+		
+		System.out.println("\nLista de Completa");
+		lista.forEach(System.out::println);
+		
+		List<Pessoa> novaLista= lista.stream().filter(x -> x.getSexo()=='f').collect(Collectors.toList());
+
+		System.out.println("\nLista de Feminina");
+		novaLista.forEach(System.out::println);
+		
+		sc.close();
+	}
+
+}

@@ -1,0 +1,71 @@
+package br.com.testes;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+import br.com.testes.dao.ContratoDao;
+import br.com.testes.dao.IContratoDao;
+import br.com.testes.dao.mocks.ContratoDaoMock;
+import br.com.testes.service.ContratoService;
+import br.com.testes.service.IContratoService;
+
+public class ContratoServiceTest {
+	
+	private IContratoDao daoMock = new ContratoDaoMock();
+	private IContratoDao dao = new ContratoDao();
+	 IContratoService service;
+	 String retorno;
+	
+	
+    @Test
+    public void salvarTest() {
+        service = new ContratoService(daoMock);
+        retorno = service.salvar();
+        Assert.assertEquals("Sucesso", retorno);
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void esperadoErroNoSalvarComBancoDeDadosTest() {
+       
+        service = new ContratoService(dao);
+        retorno = service.salvar();
+    }
+    
+    
+    @Test
+    public void buscarTest() {
+    	
+    	service = new ContratoService(daoMock);
+    	retorno = service.buscar();
+    	
+    	Assert.assertEquals("Clientes retorndos com sucesso", retorno);
+    }
+    
+    @Test(expected = UnsupportedOperationException.class)
+    public void esperadoErroNoBuscarComBancoDeDadosTest() {
+    	
+    	service = new ContratoService(dao);
+    	retorno = service.buscar();
+    	
+    }
+    
+    @Test
+    public void excluir() {
+    	
+    	service = new ContratoService(daoMock);
+    	retorno = service.excluir();
+    	
+    	Assert.assertEquals("Cliente excluído com sucesso", retorno);
+    }
+    
+    @Test
+    public void esperadoErroNoExcluirComBancoDeDadosTest() {
+    	
+    	service = new ContratoService(dao);
+    	retorno = service.excluir();
+    	
+    }
+
+    //TODO
+    //Fazer mÃ©todos de buscar, excluir e atualizar
+}

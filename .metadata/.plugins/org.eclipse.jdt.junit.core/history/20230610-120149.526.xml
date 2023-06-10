@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="AllTests" project="testes-parte" tests="6" started="6" failures="0" errors="0" ignored="0">
+  <testsuite name="br.com.testes.AllTests" time="0.0">
+    <testsuite name="br.com.testes.ClienteServiceTest" time="0.0">
+      <testcase name="salvarTest" classname="br.com.testes.ClienteServiceTest" time="0.0"/>
+      <testcase name="esperadoErroNoSalvarTest" classname="br.com.testes.ClienteServiceTest" time="0.0"/>
+    </testsuite>
+    <testsuite name="br.com.testes.ContratoServiceTest" time="0.0">
+      <testcase name="esperadoErroNoBuscarComBancoDeDadosTest" classname="br.com.testes.ContratoServiceTest" time="0.0"/>
+      <testcase name="esperadoErroNoSalvarComBancoDeDadosTest" classname="br.com.testes.ContratoServiceTest" time="0.0"/>
+      <testcase name="salvarTest" classname="br.com.testes.ContratoServiceTest" time="0.0"/>
+      <testcase name="buscarTest" classname="br.com.testes.ContratoServiceTest" time="0.0"/>
+    </testsuite>
+  </testsuite>
+</testrun>

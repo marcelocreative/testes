@@ -1,0 +1,34 @@
+import java.util.List;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+import br.com.testes.entidades.Pessoa;
+import br.com.testes.utilitarios.Factory;
+
+public class TestePessoa {
+
+	@Test
+	public void testarSeSexoFeminino() {
+		char sexo = 'm';
+		
+		Pessoa p1= Factory.criarPessoa("João Victor", 'm');
+		Pessoa p2= Factory.criarPessoa("Viviane", 'f');
+		Pessoa p3= Factory.criarPessoa("Janaina", 'f');
+		Pessoa p4= Factory.criarPessoa("Verônica", 'f');
+		Pessoa p5= Factory.criarPessoa("Eduardo", 'm');
+		Pessoa p6= Factory.criarPessoa("Josiel", 'm');
+		Pessoa p7= Factory.criarPessoa("Ana Lívia", 'f');
+		Pessoa p8= Factory.criarPessoa("Luiz Henrique", 'm');
+		Pessoa p9= Factory.criarPessoa("Cristiane", 'f');
+		
+		List<Pessoa> lista= Factory.criarListaPessoa(p1, p2, p3, p4, p5, p6, p7, p8, p9);
+		
+		List<Pessoa> listaFeminina = Factory.selecionaSexoEspecifico(lista, sexo);
+		
+		//listaFeminina.add(Factory.criarPessoa("Zagalo", 'm'));
+		
+		Assert.assertTrue(Factory.confirmaListaComSexoEspecifico(listaFeminina, 'f'));
+	}
+
+}

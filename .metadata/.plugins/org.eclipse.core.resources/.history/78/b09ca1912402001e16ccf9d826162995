@@ -1,0 +1,13 @@
+package br.com.testes.utilitarios;
+
+import br.com.testes.entidades.Pessoa;
+
+public class PessoaFactory {
+	
+	public static Pessoa criarPessoa(String nome, char sexo) {
+		
+		return new Pessoa(nome, sexo);
+		
+	}
+
+}

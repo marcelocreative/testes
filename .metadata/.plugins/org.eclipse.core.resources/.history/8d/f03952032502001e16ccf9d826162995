@@ -1,0 +1,28 @@
+package br.com.testes.utilitarios;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import br.com.testes.entidades.Pessoa;
+
+public class Factory {
+	
+	public static Pessoa criarPessoa(String nome, char sexo) {
+		
+		return new Pessoa(nome, sexo);
+		
+	}
+	
+	public static List<Pessoa> criarListaPessoa(Pessoa...pessoas){
+		
+		List<Pessoa> lista= new ArrayList<>();
+		
+		for(Pessoa pessoa : pessoas) {
+			lista.add(pessoa);
+		}
+		
+		return lista;
+		
+	}
+
+}

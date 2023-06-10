@@ -1,0 +1,43 @@
+package br.com.testes;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+import br.com.testes.dao.ContratoDao;
+import br.com.testes.dao.IContratoDao;
+import br.com.testes.dao.mocks.ContratoDaoMock;
+import br.com.testes.service.ContratoService;
+import br.com.testes.service.IContratoService;
+
+public class ContratoServiceTest {
+	
+	private IContratoDao daoMock = new ContratoDaoMock();
+	private IContratoDao dao = new ContratoDao();
+	
+	
+    @Test
+    public void salvarTest() {
+        IContratoService service = new ContratoService(daoMock);
+        String retorno = service.salvar();
+        Assert.assertEquals("Sucesso", retorno);
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void esperadoErroNoSalvarComBancoDeDadosTest() {
+       
+        IContratoService service = new ContratoService(dao);
+        String retorno = service.salvar();
+        Assert.assertEquals("Sucesso", retorno);
+    }
+    
+    
+    @Test
+    public void buscarTes() {
+    	
+    	
+    	
+    }
+
+    //TODO
+    //Fazer métodos de buscar, excluir e atualizar
+}

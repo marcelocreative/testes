@@ -1,0 +1,6 @@
+INDEX VERSION 1.131+D:\Documentos\Estudos\Projetos\tarefas-ebac\testes1\.metadata\.plugins\org.eclipse.jdt.core
+1133288397.index
+2854799742.index
+1646447899.index
+834430748.index
+1865797976.index
